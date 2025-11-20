@@ -1,0 +1,34 @@
+:root {
+  --sidebar-w: 340px;
+  --gap: 12px;
+  --accent: #0b6efd;
+  --muted: #666;
+  --bg: #fafafa;
+}
+*{box-sizing:border-box}
+body,html{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:#111;color:#fff}
+.topbar h1{font-size:1.05rem;margin:0}
+.controls{display:flex;gap:8px;align-items:center}
+.controls select, .controls button, .controls input[type="file"]{font-size:0.95rem;padding:6px 8px;border-radius:6px}
+main{display:flex;height:calc(100vh - 72px)}
+#sidebar{width:var(--sidebar-w);padding:14px;border-right:1px solid #e6e6e6;background:var(--bg);overflow:auto}
+#mapContainer{flex:1;display:flex}
+#map{flex:1;height:100%}
+#venueList{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.venueItem{padding:10px;border-radius:8px;border:1px solid #eee;background:#fff;display:flex;justify-content:space-between;align-items:center}
+.venueItem .meta{max-width:68%}
+.venueItem button{margin-left:6px}
+.hint{font-size:0.85rem;color:var(--muted);margin-top:12px}
+footer{padding:8px 12px;text-align:center;color:#666;font-size:0.85rem;background:#f7f7f7;border-top:1px solid #eee}
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:center;z-index:1000}
+.modal.hidden{display:none}
+.modal-content{background:#fff;padding:18px;border-radius:10px;max-width:520px;width:100%}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+/* photos */
+.photos img{width:100%;max-height:160px;object-fit:cover;border-radius:6px;margin-bottom:6px}
+@media (max-width:900px){
+  #sidebar{width:280px}
+  .topbar{flex-direction:column;align-items:flex-start;gap:8px}
+}

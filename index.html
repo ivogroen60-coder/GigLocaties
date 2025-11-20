@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GigMap — Live Music Venues</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>GigMap — Live Music Venues</h1>
+    <div class="controls">
+      <label for="genreSelect">Genre filter</label>
+      <select id="genreSelect">
+        <option value="all">All</option>
+      </select>
+      <button id="manageGenresBtn" title="Add / remove genres">Manage genres</button>
+      <input id="csvFileInput" type="file" accept=".csv" title="Upload CSV (local preview)">
+      <button id="downloadCsvBtn" title="Download CSV">Download CSV</button>
+    </div>
+  </header>
+
+  <main>
+    <aside id="sidebar">
+      <h2>Venues</h2>
+      <ul id="venueList"></ul>
+      <p class="hint">Click a venue to zoom. Edit genres via the Manage genres button and then filter.</p>
+    </aside>
+
+    <section id="mapContainer">
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <!-- Manage genres modal -->
+  <div id="genresModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Manage Genres</h3>
+      <p>Enter genres you want available in the dropdown. These are stored locally in your browser.</p>
+      <textarea id="genresText" rows="6" placeholder="Rock\nJazz\nElectronic"></textarea>
+      <div class="modal-actions">
+        <button id="saveGenresBtn">Save</button>
+        <button id="closeGenresBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit genre modal for a venue -->
+  <div id="editModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Edit Venue Genre</h3>
+      <p id="editVenueName"></p>
+      <select id="venueGenreSelect">
+        <option value="">(none)</option>
+      </select>
+      <div class="modal-actions">
+        <button id="saveVenueGenreBtn">Save</button>
+        <button id="cancelVenueGenreBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <small>Built for GitHub Pages • Uses Google Places for photos (API key embedded).</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
